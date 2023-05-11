@@ -1,5 +1,5 @@
 {
-	"name": "module-22",
+	"name": "module-22-waiter-app",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
@@ -13,8 +13,8 @@
 		"react": "^18.2.0",
 		"react-bootstrap": "2.0.1",
 		"react-dom": "^18.2.0",
-		"react-redux": "7.2.5",
-		"react-router-dom": "6.0.1",
+		"react-redux": "^7.2.5",
+		"react-router-dom": "^6.0.1",
 		"react-scripts": "5.0.1",
 		"redux": "4.2.0",
 		"redux-thunk": "^2.4.2",
