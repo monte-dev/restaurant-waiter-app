@@ -1,6 +1,6 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-
+import { NavLink } from 'react-router-dom';
 const Header = () => {
 	return (
 		<header>
@@ -15,7 +15,9 @@ const Header = () => {
 					className="justify-content-end"
 				>
 					<Nav>
-						<Nav.Link className="text-white">Home</Nav.Link>
+						<Nav.Link as={NavLink} to="/" className="text-white">
+							Home
+						</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>

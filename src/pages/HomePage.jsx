@@ -4,8 +4,6 @@ import AllTables from '../components/AllTables';
 const HomePage = () => {
 	const tables = useSelector(getAllTables);
 
-	console.log(tables);
-
 	return (
 		<main className="mt-3">
 			<AllTables tables={tables} />

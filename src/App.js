@@ -2,10 +2,12 @@ import './App.css';
 import { Container } from 'react-bootstrap';
 import Header from './views/Header';
 import HomePage from './pages/HomePage';
+import Table from './pages/Table';
+import NotFound from './pages/NotFound';
 import { fetchTables } from './redux/tablesReducer';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-
+import { Route, Routes } from 'react-router-dom';
 const App = () => {
 	const dispatch = useDispatch();
 	useEffect(() => {
@@ -15,7 +17,11 @@ const App = () => {
 	return (
 		<Container>
 			<Header />
-			<HomePage />
+			<Routes>
+				<Route path="/" element={<HomePage />} />
+				<Route path="/table/:tableId" element={<Table />} />
+				<Route path="*" element={<NotFound />} />
+			</Routes>
 		</Container>
 	);
 };
