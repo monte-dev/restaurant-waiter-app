@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getTableById } from '../redux/tablesReducer';
-import { Spinner } from 'react-bootstrap';
+import { Form, FormGroup, Spinner } from 'react-bootstrap';
 const Table = () => {
 	const { tableId } = useParams();
 	const table = useSelector((state) =>
@@ -20,6 +20,15 @@ const Table = () => {
 	}
 	console.log(tableId);
 	const { id, status, people, maxPeople, bill } = table;
-	return <div>table</div>;
+	return (
+		<section>
+			<Form>
+				<h1>Table {id}</h1>
+				<FormGroup className="mt-2"></FormGroup>
+				<FormGroup className="mt-2"></FormGroup>
+				<FormGroup className="mt-2"></FormGroup>
+			</Form>
+		</section>
+	);
 };
 export default Table;

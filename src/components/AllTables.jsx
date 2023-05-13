@@ -21,10 +21,7 @@ const AllTables = () => {
 					className="border-bottom py-2 d-flex align-items-center"
 				>
 					<h3 className="fw-bold">Table {index + 1}</h3>
-					<div className="flex-grow-1">
-						<span className="fw-bold ms-3">Status:</span>{' '}
-						{table.status}
-					</div>
+					<div className="ms-3 flex-grow-1">{table.status}</div>
 					<Btn
 						as={NavLink}
 						to={`/table/${table.id}`}
