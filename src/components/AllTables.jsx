@@ -5,9 +5,8 @@ import Btn from './Btn';
 import { NavLink } from 'react-router-dom';
 const AllTables = () => {
 	const dispatch = useDispatch();
-
 	const tables = useSelector(getAllTables);
-	console.log(tables);
+
 	useEffect(() => {
 		dispatch(fetchTables());
 	}, [dispatch]);
