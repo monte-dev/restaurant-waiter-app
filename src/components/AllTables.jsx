@@ -10,7 +10,6 @@ const AllTables = () => {
 	useEffect(() => {
 		dispatch(fetchTables());
 	}, [dispatch]);
-
 	return (
 		<section>
 			<h1 className="mb-3">All tables</h1>

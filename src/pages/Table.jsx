@@ -2,17 +2,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getTableById, editTablesRequest } from '../redux/tablesReducer';
+import {
+	getTableById,
+	editTablesRequest,
+	getAllTables,
+} from '../redux/tablesReducer';
 import { Button, Form, Spinner } from 'react-bootstrap';
-import Btn from '../components/Btn';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Table = () => {
 	const statusOptions = ['Free', 'Reserved', 'Cleaning', 'Busy'];
 	const { tableId } = useParams();
+
 	const table = useSelector((state) =>
 		getTableById(state, parseInt(tableId))
 	);
+	const allTables = useSelector(getAllTables);
+
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
@@ -37,6 +43,15 @@ const Table = () => {
 		handleSubmit: validate,
 		formState: { errors },
 	} = useForm();
+	useEffect(() => {
+		if (tableId > allTables.length) {
+			const navigateToHome = async () => {
+				navigate('/');
+			};
+
+			navigateToHome();
+		}
+	}, [tableId, allTables, navigate]);
 
 	if (!table) {
 		return (
@@ -83,7 +98,6 @@ const Table = () => {
 						value={people}
 						onChange={(e) => setPeople(e.target.value)}
 					/>
-
 					{'/'}
 					<Form.Control
 						{...register('maxPeople', { min: 0, max: 10 })}
